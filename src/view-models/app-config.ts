@@ -2,6 +2,6 @@ export class AppConfig {
   /**
    * application name
    */
-  public static applicationName: string;
+  public readonly applicationName: string;
 
 }

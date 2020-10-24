@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { NavBarModule } from './modules/nav-bar/nav-bar.module';
 import { PrimaryLayoutComponent } from './modules/primary-layout/primary-layout.component';
 import { PrimaryLayoutModule } from './modules/primary-layout/primary-layout.module';
+import { ServicesModule } from './services/services.module';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     NavBarModule,
-    PrimaryLayoutModule
+    PrimaryLayoutModule,
+    ServicesModule
   ],
   exports: [RouterModule],
 })

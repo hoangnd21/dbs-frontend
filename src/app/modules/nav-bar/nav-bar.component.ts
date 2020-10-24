@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AppConfigService } from 'src/app/services/app-config.service';
+import { AppConfig } from 'src/view-models/app-config';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -6,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, OnDestroy {
   //#region Properties
   protected _pageHeader: string;
+
+  protected readonly _subscription: Subscription;
   //#endregion
 
   //#region Accessors
@@ -23,12 +28,29 @@ export class NavBarComponent implements OnInit {
   }
   //#endregion
   //#region Constructor
-  constructor() {
+  constructor(
+    protected appConfigService: AppConfigService
+  ) {
     this.pageHeader = 'Pet stores';
+    this._subscription = new Subscription();
   }
 
   //#endregion
   //#region Methods
-  ngOnInit(): void { }
+  public ngOnInit(): void {
+    const loadAppNameSubscription: Subscription = this.appConfigService.loadConfigurationAsync().subscribe(
+      (appConfig: AppConfig) => {
+        this.pageHeader = appConfig.applicationName;
+      }
+    );
+
+  }
+
+  public ngOnDestroy(): void {
+
+    if(this._subscription && !this._subscription.closed) {
+      this._subscription.unsubscribe();
+    }
+  }
   //#endregion
 }
