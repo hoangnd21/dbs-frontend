@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppConfig } from 'src/view-models/app-config';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AppConfigService {
 
   //#region Constructor

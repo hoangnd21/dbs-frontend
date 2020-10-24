@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AppConfigService } from 'src/app/services/app-config.service';
 import { AppConfig } from 'src/view-models/app-config';
@@ -14,6 +14,10 @@ export class NavBarComponent implements OnInit, OnDestroy {
   protected _pageHeader: string;
 
   protected readonly _subscription: Subscription;
+
+  // tslint:disable-next-line: no-output-rename
+  @Output('toggle-sidebar')
+  protected _sideBarToggleEventEmitter: EventEmitter<any>;
   //#endregion
 
   //#region Accessors
@@ -31,8 +35,8 @@ export class NavBarComponent implements OnInit, OnDestroy {
   constructor(
     protected appConfigService: AppConfigService
   ) {
-    this.pageHeader = 'Pet stores';
     this._subscription = new Subscription();
+    this._sideBarToggleEventEmitter = new EventEmitter<boolean>();
   }
 
   //#endregion
@@ -44,13 +48,19 @@ export class NavBarComponent implements OnInit, OnDestroy {
       }
     );
 
+    this._subscription.add(loadAppNameSubscription);
+
   }
 
   public ngOnDestroy(): void {
 
-    if(this._subscription && !this._subscription.closed) {
+    if (this._subscription && !this._subscription.closed) {
       this._subscription.unsubscribe();
     }
+  }
+
+  public onClickingSidebarMenuHamburger(): void {
+    this._sideBarToggleEventEmitter.emit();
   }
   //#endregion
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppConfigService } from './app-config.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterService } from './router.service';
 
 
 
@@ -12,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    AppConfigService
+    AppConfigService,
+    RouterService
   ]
 })
 export class ServicesModule { }

@@ -1,0 +1,7 @@
+<div #item class="w-100 sidenav-item d-flex align-items-center p-2" [routerLink]="sidenavItem.navigate"
+  (click)="item.blur()" [routerLinkActive]="'active'">
+  <mat-icon class="material-icons-outlined"> {{sidenavItem.icon}}</mat-icon>
+  <p class="ml-3 my-0">
+    {{sidenavItem.text}}
+  </p>
+</div>

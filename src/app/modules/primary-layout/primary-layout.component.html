@@ -1,2 +1,12 @@
-<nav-bar></nav-bar>
-<router-outlet></router-outlet>
+<nav-bar (toggle-sidebar)="sidenav.toggle()"></nav-bar>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav [mode]="sidenavMode">
+    <sidenav-item *ngFor="let item of sidenavItems" [item]="item" (click)="sidenav.close()"></sidenav-item>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="main">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
