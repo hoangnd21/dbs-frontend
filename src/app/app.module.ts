@@ -13,7 +13,7 @@ import { NavBarModule } from './modules/nav-bar/nav-bar.module';
     NavBarModule,
     AppRoutingModule,
   ],
-  providers: [], dasdasd
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
