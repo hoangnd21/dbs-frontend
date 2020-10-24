@@ -1,3 +1,20 @@
 {
-  "applicationName": "Lovely Pet Store"
+  "applicationName": "Lovely Pet Store",
+  "sidenavItems": [
+    {
+      "icon": "home",
+      "text": "Home",
+      "navigate": "/home"
+    },
+    {
+      "icon": "add_box",
+      "text": "Browse",
+      "navigate": "/browse"
+    },
+    {
+      "icon": "inbox",
+      "text": "Inbox",
+      "navigate": "/inbox"
+    }
+  ]
 }

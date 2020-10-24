@@ -1,0 +1,11 @@
+.sidenav-item {
+  height: 60px;
+}
+::ng-deep .mat-drawer-inner-container {
+  min-width: 20vw !important;
+}
+.active {
+  font-weight: 600;
+  color: #3f51b5;
+  background-color: #f5f5f5;
+}
