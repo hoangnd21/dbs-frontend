@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AppConfigService } from 'src/app/services/app-config.service';
 import { AppConfig } from 'src/view-models/app-config';
@@ -30,10 +31,17 @@ export class NavBarComponent implements OnInit, OnDestroy {
   public set pageHeader(value: string) {
     this._pageHeader = value;
   }
+
+  public get isLoginPage(): boolean {
+    return this.router.url.includes('/login');
+  }
+
   //#endregion
+
   //#region Constructor
   constructor(
-    protected appConfigService: AppConfigService
+    protected appConfigService: AppConfigService,
+    protected router: Router
   ) {
     this._subscription = new Subscription();
     this._sideBarToggleEventEmitter = new EventEmitter<boolean>();

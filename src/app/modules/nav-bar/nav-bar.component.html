@@ -1,18 +1,24 @@
 <p class="m-0">
   <mat-toolbar color="primary" class="d-flex justify-content-between">
-    <div class="d-flex align-items-center" (click)="onClickingSidebarMenuHamburger()">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <div class="d-flex align-items-center flex-grow-1">
+      <button mat-icon-button class="example-icon" class="flex-shrink-1" (click)="onClickingSidebarMenuHamburger()"
+        *ngIf="!isLoginPage">
         <mat-icon>menu</mat-icon>
       </button>
-      {{pageHeader}}
+      <p class="text-center header flex-grow-1">
+
+        {{pageHeader | uppercase}}
+      </p>
     </div>
-    <div>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <div class="flex-shrink-1">
+      <button mat-icon-button *ngIf="!isLoginPage">
         <mat-icon>favorite</mat-icon>
       </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-      </button>
+      <a href="https://github.com/hoangnd21/dbs-frontend" target="_blank" rel="noopener noreferrer" mat-icon-button>
+        <mat-icon>
+          code
+        </mat-icon>
+      </a>
     </div>
   </mat-toolbar>
 </p>
