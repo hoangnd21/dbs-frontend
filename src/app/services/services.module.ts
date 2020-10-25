@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AppConfigService } from './app-config.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterService } from './router.service';
+import { AuthorizationService } from './authorization.service';
 
 
 
@@ -14,7 +15,8 @@ import { RouterService } from './router.service';
   ],
   providers: [
     AppConfigService,
-    RouterService
+    RouterService,
+    AuthorizationService
   ]
 })
 export class ServicesModule { }

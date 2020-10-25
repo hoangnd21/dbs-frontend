@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmitLoginForm(): void {
+
     console.log(this.loginFormGroup.value);
 
   }
