@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  //#region Properties
+  public backgroundImageUrl: string;
+  //#endregion
 
-  constructor() { }
+  //#region Constructor
+  public constructor() {
 
-  ngOnInit(): void {
+    this.backgroundImageUrl = 'https://via.placeholder.com';
   }
+  //#endregion
 
+  //#region Methods
+  public ngOnInit(): void { }
+  //#endregion
 }
